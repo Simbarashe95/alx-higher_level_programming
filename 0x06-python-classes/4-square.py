@@ -1,53 +1,61 @@
 #!/usr/bin/python3
-""" module contains: class Square """
+"""Square generation module for Python project 0x06
+"""
 
 
 class Square:
-    """
-        Square: defines a square
-        Attributes:
-            size (int): size of square
-        Method:
-            __init__: Initializes size for all instances
+    """Class defined for square generation.
+
+    Args:
+        size (int): length of one side of square
+
+    Attributes:
+        __size (int): length of one side of square
+
     """
 
     def __init__(self, size=0):
-        """ Initialization of attributes for instances
-            Args:
-                size (int): size of the square.
-        """
-        if (isinstance(size, int)):
-            self.__size = size
-        if size < 0:
-            raise ValueError("size must be >= 0")
-        else:
-            raise TypeError("size must be an integer")
+        # attribute assigment here engages setters defined below
+        self.size = size
 
     @property
     def size(self):
-        """ getter function to for private attribute size
-            Return:
-                size of the square
+        """__size getter, setter with same method name
+
+        Returns:
+        __size (int): length of one side, squared
+
         """
         return self.__size
 
     @size.setter
     def size(self, value):
-        """ setter function for private attribute size
-            Args:
-                value (int): value to be set
-            Return:
-                nothing
-        """
+        """Args:
+            value (int): length of one side of square
 
-        if not (isinstance(value, int)):
-            raise TypeError('size must be an integer')
-        if value < 0:
-            raise ValueError('size must be >= 0')
-        self.__size = value
+        Attributes:
+            __size (int): length of one side of square
+
+        Raises:
+            TypeError: if value is not an integer
+            ValueError: if value is less than 0
+
+        """
+    if type(value) is not int:
+        raise TypeError('size must be an integer')
+    if value < 0:
+        raise ValueError('size must be >= 0')
+    self.__size = value
 
     def area(self):
+        """Calulates area of square.
+
+        Attributes:
+            __size (int): length of one side of square
+
+        Returns:
+            area (int): length of one side, squared
+
         """
-            area of the square.
-        """
-        return self.__size * self.__size
+        area = self.__size * self.__size
+        return area
